@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CG\\.net\\LoanManagementSystem\\LoanManagementSystem.UI\\LoanManagementSystem.UI.csproj": {}
+    "E:\\CG\\.net\\Group4-LoanManagementSystem-Sprint2\\LoanManagementSystem\\LoanManagementSystem.UI\\LoanManagementSystem.UI.csproj": {}
   },
   "projects": {
-    "E:\\CG\\.net\\LoanManagementSystem\\LoanManagementSystem.UI\\LoanManagementSystem.UI.csproj": {
+    "E:\\CG\\.net\\Group4-LoanManagementSystem-Sprint2\\LoanManagementSystem\\LoanManagementSystem.UI\\LoanManagementSystem.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CG\\.net\\LoanManagementSystem\\LoanManagementSystem.UI\\LoanManagementSystem.UI.csproj",
+        "projectUniqueName": "E:\\CG\\.net\\Group4-LoanManagementSystem-Sprint2\\LoanManagementSystem\\LoanManagementSystem.UI\\LoanManagementSystem.UI.csproj",
         "projectName": "LoanManagementSystem.UI",
-        "projectPath": "E:\\CG\\.net\\LoanManagementSystem\\LoanManagementSystem.UI\\LoanManagementSystem.UI.csproj",
+        "projectPath": "E:\\CG\\.net\\Group4-LoanManagementSystem-Sprint2\\LoanManagementSystem\\LoanManagementSystem.UI\\LoanManagementSystem.UI.csproj",
         "packagesPath": "C:\\Users\\anujg\\.nuget\\packages\\",
-        "outputPath": "E:\\CG\\.net\\LoanManagementSystem\\LoanManagementSystem.UI\\obj\\",
+        "outputPath": "E:\\CG\\.net\\Group4-LoanManagementSystem-Sprint2\\LoanManagementSystem\\LoanManagementSystem.UI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\anujg\\AppData\\Roaming\\NuGet\\NuGet.Config",
