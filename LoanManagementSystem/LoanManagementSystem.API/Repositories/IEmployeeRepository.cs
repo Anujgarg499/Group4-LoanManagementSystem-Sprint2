@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSystem.API.Repositories
 {
-    interface IEmployeeRepository
+    public interface IEmployeeRepository
     {
         bool IsLoginBankEmployee(string EmpId, string EmpPassword);
         List<Customer> ViewCustomers();

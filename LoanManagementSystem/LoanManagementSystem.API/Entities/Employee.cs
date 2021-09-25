@@ -12,6 +12,7 @@ namespace LoanManagementSystem.API.Entities
     {
         [Key]
         [Required]
+        [StringLength(30)]
         [Column(TypeName = "varchar")]
         public string EmpId { get; set; }
         [Required]

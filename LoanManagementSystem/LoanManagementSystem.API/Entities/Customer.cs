@@ -36,7 +36,8 @@ namespace LoanManagementSystem.API.Entities
         [StringLength(30)]
         [Column(TypeName = "varchar")]
         public string PanNumber { get; set; }
-        [Required]        
+        [Required]
+        [Column(TypeName = "numeric")]
         public decimal AadharNumber { get; set; }
         [Required]
         [StringLength(30)]
@@ -48,6 +49,7 @@ namespace LoanManagementSystem.API.Entities
         public string Email { get; set; }
         [Column(TypeName = "varchar")]
         public string DOB { get; set; }
+        [Column(TypeName = "numeric")]
         public decimal? CreditLimit { get; set; }
         public DateTime? LastUpdatedCreditDate { get; set; }
     }

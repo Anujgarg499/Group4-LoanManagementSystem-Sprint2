@@ -10,9 +10,11 @@ namespace LoanManagementSystem.API.Entities
     [Table("LoanDetails")]
     public class LoanDetails
     {
-        [Key]        
-        public decimal LoanAccNumber { get; set; }
-        [Required]        
+        [Key]
+        [Column(TypeName = "varchar")]
+        public string LoanAccNumber { get; set; }
+        [Required]
+        [Column(TypeName = "numeric")]
         public decimal LoanAmount { get; set; }
         [Required]
         [StringLength(30)]
@@ -38,13 +40,18 @@ namespace LoanManagementSystem.API.Entities
         [Required]
         public DateTime? DispersalDate { get; set; }
         [Required]
+        [Column(TypeName = "numeric")]
         public decimal InteresrRate { get; set; }
+        [Column(TypeName = "numeric")]
         public decimal? Tenure { get; set; }            
         public DateTime? EmiStartDate { get; set; }
         public DateTime? EmiEndDate { get; set; }
+        [Column(TypeName = "numeric")]
         public decimal? EmiAmount { get; set; }
+        [Column(TypeName = "numeric")]
         public decimal? CreditLimit { get; set; }
         public DateTime? LastUpdatedCreditDate { get; set; }
+        [Column(TypeName = "numeric")]
         public decimal? CustomerAssetId { get; set; }
 
 

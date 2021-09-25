@@ -1,4 +1,5 @@
 using LoanManagementSystem.API.DBAccess;
+using LoanManagementSystem.API.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,7 @@ namespace LoanManagementSystem.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<LoanManagementSystemDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LoanManagementSystemDBConnection")));
+            services.AddTransient<ICustomerRepository,CustomerRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
