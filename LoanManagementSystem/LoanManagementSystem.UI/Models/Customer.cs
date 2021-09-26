@@ -14,18 +14,19 @@ namespace LoanManagementSystem.UI.Models
         [DisplayName("Customer Username")]
         public string CustomerId { get; set; }
         [Required(ErrorMessage = "FirstName is required")]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Give Name in Alphabets Only")]
+        [RegularExpression(@"^[a-zA-Z].{3,20}$", ErrorMessage = "Give Name in Alphabets Only")]
         public string FirstName { get; set; }
         [Required(ErrorMessage = "LastName is required")]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Give Name in Alphabets Only")]
+        [RegularExpression(@"^[a-zA-Z].{3,20}$", ErrorMessage = "Give Name in Alphabets Only")]
         public string LastName { get; set; }
         [Required(ErrorMessage = "Please enter the Password")]
-        [RegularExpression(@"^([a-zA-Z][0-9][~!@#$%^&*]){8,10}+$", ErrorMessage = "Please enter a valid password")]
+        [DataType(DataType.Password)]
+        /*[RegularExpression(@"^([a-zA-Z][0-9][~!@#$%^&*]).{8,20}$", ErrorMessage = "Please enter a valid password")]*/
         public string CustomerPassword { get; set; }
         [Required(ErrorMessage = "Please enter your Address")]
         public string Address { get; set; }
         [Required(ErrorMessage = "Please provide the PanNumber")]
-        [RegularExpression(@"^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}+$", ErrorMessage = "Please enter the correct PanNumber Ex: ASDFG1234H")]
+        [RegularExpression(@"^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}$", ErrorMessage = "Please enter the correct PanNumber Ex: ASDFG1234H")]
         public string PanNumber { get; set; }
         [Required(ErrorMessage = "Please provide the AadharNumber")]
         [RegularExpression(@"^[0-9]{12}$", ErrorMessage = "Please enter the correct AadharNumber")]
@@ -33,6 +34,7 @@ namespace LoanManagementSystem.UI.Models
         [Required(ErrorMessage = "Please enter the PhoneNumber")]
         [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Please enter the correct PhoneNumber")]
         public string ContactNumber { get; set; }
+        [Required(ErrorMessage = "Please enter the Email Address")]
         [DataType(DataType.EmailAddress)]
         [StringLength(25, ErrorMessage = "Maximum of 25 characters allowed")]
         public string Email { get; set; }

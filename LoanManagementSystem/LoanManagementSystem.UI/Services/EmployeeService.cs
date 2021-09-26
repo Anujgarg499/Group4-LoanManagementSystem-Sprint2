@@ -20,8 +20,8 @@ namespace LoanManagementSystem.UI.Services
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:5000/");
-                HttpResponseMessage response = client.DeleteAsync("api/Employee/DeleteCustomer/" + CustomerId+"/"+LoanAccNumber).Result;
+                client.BaseAddress = new Uri("http://localhost:25813/");
+                HttpResponseMessage response = client.DeleteAsync("api/Employee/DeleteCustomer/" + CustomerId+"?"+LoanAccNumber).Result;
 
             }
         }
@@ -45,7 +45,7 @@ namespace LoanManagementSystem.UI.Services
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:5000/"); //set API address
+                client.BaseAddress = new Uri("http://localhost:25813/"); //set API address
                 MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json"); //set the media type format as json
                 client.DefaultRequestHeaders.Accept.Add(contentType); //set the media type as json
                 HttpResponseMessage response = client.GetAsync("api/Employee/GetCustomer/" + CustomerId).Result;
@@ -58,7 +58,7 @@ namespace LoanManagementSystem.UI.Services
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:5000/"); //set API address
+                client.BaseAddress = new Uri("http://localhost:25813/"); //set API address
                 MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json"); //set the media type format as json
                 client.DefaultRequestHeaders.Accept.Add(contentType); //set the media type as json
                 HttpResponseMessage response = client.GetAsync("api/Employee/ViewCustomers").Result;

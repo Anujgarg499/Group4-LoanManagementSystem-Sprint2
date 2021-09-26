@@ -56,7 +56,7 @@ namespace LoanManagementSystem.UI.Controllers
             try
             {
                 if (ModelState.IsValid)
-                {
+                {                                        
                     customerService.ApplyLoan(loanDetails);
                     return RedirectToAction("Index");
                 }

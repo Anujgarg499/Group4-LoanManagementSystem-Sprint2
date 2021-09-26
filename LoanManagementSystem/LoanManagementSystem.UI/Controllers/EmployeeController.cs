@@ -32,7 +32,7 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
-        public IActionResult SearchCustomer(string customerid)
+        public IActionResult GetCustomer(string customerid)
         {
             try
             {

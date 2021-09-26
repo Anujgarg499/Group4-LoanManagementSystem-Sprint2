@@ -9,7 +9,7 @@ namespace LoanManagementSystem.UI.Models
 {
     public class LoanDetails
     {
-        public decimal LoanAccNumber { get; set; }
+        public string LoanAccNumber { get; set; } = Guid.NewGuid().ToString();
         [Required(ErrorMessage = "Please enter LoanAmount")]
         public decimal LoanAmount { get; set; }
         [Required(ErrorMessage = "CustomerId is required")]
