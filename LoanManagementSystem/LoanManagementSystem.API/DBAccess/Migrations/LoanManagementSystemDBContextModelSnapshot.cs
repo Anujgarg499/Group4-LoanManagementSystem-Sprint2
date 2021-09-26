@@ -47,7 +47,8 @@ namespace LoanManagementSystem.API.DBAccess.Migrations
                         .HasColumnType("varchar(30)");
 
                     b.Property<string>("DOB")
-                        .HasColumnType("varchar");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -115,7 +116,8 @@ namespace LoanManagementSystem.API.DBAccess.Migrations
             modelBuilder.Entity("LoanManagementSystem.API.Entities.LoanDetails", b =>
                 {
                     b.Property<string>("LoanAccNumber")
-                        .HasColumnType("varchar");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<decimal?>("CreditLimit")
                         .HasColumnType("numeric");
@@ -129,7 +131,6 @@ namespace LoanManagementSystem.API.DBAccess.Migrations
                         .HasColumnType("varchar(30)");
 
                     b.Property<DateTime?>("DispersalDate")
-                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<decimal?>("EmiAmount")
@@ -156,12 +157,11 @@ namespace LoanManagementSystem.API.DBAccess.Migrations
                         .HasColumnType("numeric");
 
                     b.Property<DateTime?>("LoanApprovedDate")
-                        .IsRequired()
-                        .HasMaxLength(30)
                         .HasColumnType("datetime2");
 
                     b.Property<string>("LoanStatus")
-                        .HasColumnType("varchar");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("LoanType")
                         .IsRequired()

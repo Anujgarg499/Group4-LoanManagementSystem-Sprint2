@@ -25,10 +25,10 @@ namespace LoanManagementSystem.API.Repositories
             try
             {
                 //Customer customer = db.Customers.Find(CustomerId,LoanAccNumber);
-                LoanDetails loanDetails = db.LoanDetails.Find(CustomerId, LoanAccNumber);
-                db.LoanDetails.Remove(loanDetails);
-                //db.Customers.Remove(customer);
-                db.SaveChanges();
+                LoanDetails loanDetails = db.LoanDetails.Find(CustomerId, LoanAccNumber);                
+                    db.LoanDetails.Remove(loanDetails);
+                    //db.Customers.Remove(customer);
+                    db.SaveChanges();                
             }
             catch (Exception)
             {
@@ -71,7 +71,8 @@ namespace LoanManagementSystem.API.Repositories
         {
             try
             {
-                return db.Customers.ToList();
+                List<Customer> customers= db.Customers.ToList();
+                return customers;                
             }
             catch (Exception)
             {
@@ -79,15 +80,10 @@ namespace LoanManagementSystem.API.Repositories
                 throw;
             }
         }
-
-        public List<PendingCustomers> ViewPendingandRejectedCustomers()
+        public List<LoanDetails> ViewPendingCustomers()
         {
-            throw new NotImplementedException();
-        }
-
-        public List<PendingCustomers> ViewPendingCustomers()
-        {
-            throw new NotImplementedException();
+            List<LoanDetails> loans = db.LoanDetails.Where(p => p.LoanStatus == "Pending").ToList();
+            return loans;
         }
     }
 }

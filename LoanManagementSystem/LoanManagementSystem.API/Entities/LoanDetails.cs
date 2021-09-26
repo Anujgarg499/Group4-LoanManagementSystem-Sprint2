@@ -11,6 +11,7 @@ namespace LoanManagementSystem.API.Entities
     public class LoanDetails
     {
         [Key]
+        [StringLength(30)]
         [Column(TypeName = "varchar")]
         public string LoanAccNumber { get; set; }
         [Required]
@@ -31,13 +32,11 @@ namespace LoanManagementSystem.API.Entities
         [Required]
         [StringLength(30)]
         [Column(TypeName = "varchar")]
-        public string LoanType { get; set; }
-        [Required]
-        [StringLength(30)]
+        public string LoanType { get; set; }              
         public DateTime? LoanApprovedDate { get; set; }
+        [StringLength(30)]
         [Column(TypeName = "varchar")]
-        public string LoanStatus { get; set; }
-        [Required]
+        public string LoanStatus { get; set; }        
         public DateTime? DispersalDate { get; set; }
         [Required]
         [Column(TypeName = "numeric")]

@@ -30,6 +30,7 @@ namespace LoanManagementSystem.API
         {
             services.AddDbContext<LoanManagementSystemDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LoanManagementSystemDBConnection")));
             services.AddTransient<ICustomerRepository,CustomerRepository>();
+            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -47,7 +47,7 @@ namespace LoanManagementSystem.API.Controllers
             }
         }
         [HttpDelete]
-        [Route("DeleteCustomer/{id}")]
+        [Route("DeleteCustomer/{id}/{loanAccountNumber}")]
         public IActionResult DeleteCustomerById(string id, decimal loanAccountNumber)
         {
             try

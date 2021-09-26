@@ -48,6 +48,7 @@ namespace LoanManagementSystem.API.Entities
         [Column(TypeName = "varchar")]
         public string Email { get; set; }
         [Column(TypeName = "varchar")]
+        [StringLength(30)]
         public string DOB { get; set; }
         [Column(TypeName = "numeric")]
         public decimal? CreditLimit { get; set; }

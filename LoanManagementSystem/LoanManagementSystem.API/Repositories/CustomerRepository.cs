@@ -18,7 +18,7 @@ namespace LoanManagementSystem.API.Repositories
         public void AddCustomer(Customer customer)
         {
             try
-            {
+            {                
                 db.Customers.Add(customer);
                 db.SaveChanges();
             }
@@ -69,6 +69,20 @@ namespace LoanManagementSystem.API.Repositories
             {
                 db.Customers.Update(customer);
                 db.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public Customer SearchCustomerById(string CustomerId)
+        {
+            try
+            {
+                Customer customer = db.Customers.Find(CustomerId);
+                return customer;
+
             }
             catch (Exception)
             {
