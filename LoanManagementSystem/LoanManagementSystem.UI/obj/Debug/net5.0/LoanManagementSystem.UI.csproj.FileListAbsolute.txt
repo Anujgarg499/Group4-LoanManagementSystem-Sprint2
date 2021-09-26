@@ -116,8 +116,8 @@ E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManageme
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\ViewCustomer.cshtml.g.cs
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Customer\Create.cshtml.g.cs
-E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Customer\Edit.cshtml.g.cs
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\Index.cshtml.g.cs
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Customer\Index.cshtml.g.cs
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\GetCustomer.cshtml.g.cs
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Customer\Apply.cshtml.g.cs
+E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Customer\Edit.cshtml.g.cs

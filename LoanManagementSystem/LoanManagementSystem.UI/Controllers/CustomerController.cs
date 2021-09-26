@@ -55,8 +55,10 @@ namespace LoanManagementSystem.UI.Controllers
         {
             try
             {
+                /*loanDetails.LoanAccNumber = Guid.NewGuid().ToString();
+                loanDetails.EmpId = "Admin123";*/
                 if (ModelState.IsValid)
-                {                                        
+                {  
                     customerService.ApplyLoan(loanDetails);
                     return RedirectToAction("Index");
                 }
@@ -80,9 +82,16 @@ namespace LoanManagementSystem.UI.Controllers
         public IActionResult Edit(Customer customer)
         {
             try
-            {
-                customerService.UpdateCustomerById(customer);
-                return RedirectToAction("Index");
+            {                 
+                if (ModelState.IsValid)
+                {
+                    customerService.UpdateCustomerById(customer);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch (Exception)
             {

@@ -9,7 +9,7 @@ namespace LoanManagementSystem.UI.Models
 {
     public class LoanDetails
     {
-        public string LoanAccNumber { get; set; } = Guid.NewGuid().ToString();
+        public string LoanAccNumber { get; set; }
         [Required(ErrorMessage = "Please enter LoanAmount")]
         public decimal LoanAmount { get; set; }
         [Required(ErrorMessage = "CustomerId is required")]
@@ -24,8 +24,8 @@ namespace LoanManagementSystem.UI.Models
         [DataType(DataType.Date)]
         [DisplayName("DispersalDate")]
         public DateTime? DispersalDate { get; set; }
-        public decimal InterestRate { get; set; }
-        [Required(ErrorMessage = "Please enter the Tenure")]
+        [Required(ErrorMessage = "Please enter the Interest Rate")]
+        public decimal InterestRate { get; set; }        
         public decimal? Tenure { get; set; }
         public DateTime? EmiStartDate { get; set; }
         public DateTime? EmiEndDate { get; set; }
