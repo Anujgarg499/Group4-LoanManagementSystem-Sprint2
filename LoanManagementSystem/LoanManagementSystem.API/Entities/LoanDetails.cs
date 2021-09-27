@@ -23,7 +23,7 @@ namespace LoanManagementSystem.API.Entities
         [ForeignKey("Customer")]
         public string CustomerId { get; set; }
         public Customer Customer { get; set; }
-        [Required]
+        //[Required]
         [StringLength(30)]
         [Column(TypeName = "varchar")]
         [ForeignKey("Employee")]

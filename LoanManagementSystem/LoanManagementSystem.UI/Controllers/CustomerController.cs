@@ -48,6 +48,8 @@ namespace LoanManagementSystem.UI.Controllers
         [HttpGet]
         public IActionResult Apply()
         {
+            /*string loanAccNumber = Guid.NewGuid().ToString();
+            ViewData["loanAccNumber"] = loanAccNumber;*/
             return View();
         }
         [HttpPost]
@@ -58,7 +60,8 @@ namespace LoanManagementSystem.UI.Controllers
                 /*loanDetails.LoanAccNumber = Guid.NewGuid().ToString();
                 loanDetails.EmpId = "Admin123";*/
                 if (ModelState.IsValid)
-                {  
+                {
+                    //loanDetails.EmpId = null;
                     customerService.ApplyLoan(loanDetails);
                     return RedirectToAction("Index");
                 }

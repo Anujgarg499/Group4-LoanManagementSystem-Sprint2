@@ -30,7 +30,7 @@ namespace LoanManagementSystem.UI.Models
         public string PanNumber { get; set; }
         [Required(ErrorMessage = "Please provide the AadharNumber")]
         [RegularExpression(@"^[0-9]{12}$", ErrorMessage = "Please enter the correct AadharNumber")]
-        public decimal AadharNumber { get; set; }
+        public string AadharNumber { get; set; }
         [Required(ErrorMessage = "Please enter the PhoneNumber")]
         [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Please enter the correct PhoneNumber")]
         public string ContactNumber { get; set; }

@@ -37,8 +37,9 @@ namespace LoanManagementSystem.API.Entities
         [Column(TypeName = "varchar")]
         public string PanNumber { get; set; }
         [Required]
-        [Column(TypeName = "numeric")]
-        public decimal AadharNumber { get; set; }
+        [StringLength(30)]
+        [Column(TypeName = "varchar")]
+        public string AadharNumber { get; set; }
         [Required]
         [StringLength(30)]
         [Column(TypeName = "varchar")]

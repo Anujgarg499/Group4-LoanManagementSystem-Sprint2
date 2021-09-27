@@ -14,7 +14,7 @@ namespace LoanManagementSystem.API.Repositories
         void DeleteCustomerById(string CustomerId, decimal LoanAccNumber);
         void LoanApproval(string CustomerId, string EmpId);
         void LoanRejection(string CustomerId, string EmpId, decimal LoanAccNumber);
-        List<LoanDetails> ViewPendingCustomers();        
+        List<PendingCustomers> ViewPendingCustomers();        
         bool CheckCriteria(string CustomerId);
     }
 }

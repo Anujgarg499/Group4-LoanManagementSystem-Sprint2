@@ -80,10 +80,37 @@ namespace LoanManagementSystem.API.Repositories
                 throw;
             }
         }
-        public List<LoanDetails> ViewPendingCustomers()
+        public List<PendingCustomers> ViewPendingCustomers()
         {
-            List<LoanDetails> loans = db.LoanDetails.Where(p => p.LoanStatus == "Pending").ToList();
-            return loans;
+            /*List<PendingCustomers> pendingCustomers = db.PendingCustomers.FromSqlRaw("ViewPendingCustomers").ToList();
+            return pendingCustomers;*/
+            List<Customer> customers = db.Customers.ToList();
+            List<LoanDetails> loanDetails = db.LoanDetails.ToList();
+            List<PendingCustomers> pendingCustomers = new List<PendingCustomers>();
+            var pendingCustomerquery = from customer in customers
+                                       join loan in loanDetails on customer.CustomerId equals loan.CustomerId
+                                       where loan.LoanStatus == "Pending"
+                                       select new
+                                       {
+                                           CustomerId=customer.CustomerId,
+                                           LoanAccNumber=loan.LoanAccNumber,
+                                           FirstName=customer.FirstName,
+                                           LastName=customer.LastName,
+                                           LoanStatus=loan.LoanStatus
+                                       };
+            foreach(var item in pendingCustomerquery)
+            {
+                var PendingCustomers = new PendingCustomers()
+                {
+                    CustomerId = item.CustomerId,
+                    LoanAccNumber =decimal.Parse(item.LoanAccNumber),
+                    FirstName = item.FirstName,
+                    LastName = item.LastName,
+                    LoanStatus = item.LoanStatus
+                };                
+                pendingCustomers.Add(PendingCustomers);
+            }
+            return pendingCustomers;
         }
     }
 }

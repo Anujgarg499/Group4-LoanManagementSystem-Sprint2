@@ -15,12 +15,12 @@ namespace LoanManagementSystem.UI.Models
         [Required(ErrorMessage = "CustomerId is required")]
         [DisplayName("Customer Username")]
         public string CustomerId { get; set; }
-        [Required(ErrorMessage = "EmpId is required")]
+        //[Required(ErrorMessage = "EmpId is required")]
         public string EmpId { get; set; }
         [Required(ErrorMessage = "Please select the type of loan")]
         public string LoanType { get; set; }
         public DateTime? LoanApprovedDate { get; set; }
-        public string LoanStatus { get; set; }
+        public string LoanStatus { get; set; } = "Pending";
         [DataType(DataType.Date)]
         [DisplayName("DispersalDate")]
         public DateTime? DispersalDate { get; set; }

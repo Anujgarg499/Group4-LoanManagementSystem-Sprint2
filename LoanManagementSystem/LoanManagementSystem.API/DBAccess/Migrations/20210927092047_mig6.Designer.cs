@@ -4,14 +4,16 @@ using LoanManagementSystem.API.DBAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LoanManagementSystem.API.DBAccess.Migrations
 {
     [DbContext(typeof(LoanManagementSystemDBContext))]
-    partial class LoanManagementSystemDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210927092047_mig6")]
+    partial class mig6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

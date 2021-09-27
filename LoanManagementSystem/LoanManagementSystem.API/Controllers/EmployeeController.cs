@@ -60,5 +60,19 @@ namespace LoanManagementSystem.API.Controllers
                 return Content(ex.Message);
             }
         }
+        [HttpGet]
+        [Route("ViewPendingCustomers")]
+        public IActionResult GetPendingCustomers()
+        {
+            try
+            {
+                List<PendingCustomers> pendingcustomers = employeeRepository.ViewPendingCustomers();
+                return Ok(pendingcustomers);
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+        }
     }
 }

@@ -4,14 +4,16 @@ using LoanManagementSystem.API.DBAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LoanManagementSystem.API.DBAccess.Migrations
 {
     [DbContext(typeof(LoanManagementSystemDBContext))]
-    partial class LoanManagementSystemDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210927050845_mig5")]
+    partial class mig5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -145,6 +147,7 @@ namespace LoanManagementSystem.API.DBAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmpId")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)");
 
@@ -191,7 +194,9 @@ namespace LoanManagementSystem.API.DBAccess.Migrations
 
                     b.HasOne("LoanManagementSystem.API.Entities.Employee", "Employee")
                         .WithMany()
-                        .HasForeignKey("EmpId");
+                        .HasForeignKey("EmpId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Customer");
 
