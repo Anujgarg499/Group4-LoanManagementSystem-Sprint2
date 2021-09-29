@@ -4,14 +4,16 @@ using LoanManagementSystem.API.DBAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LoanManagementSystem.API.DBAccess.Migrations
 {
     [DbContext(typeof(LoanManagementSystemDBContext))]
-    partial class LoanManagementSystemDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210928054352_mig9")]
+    partial class mig9
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,9 +150,8 @@ namespace LoanManagementSystem.API.DBAccess.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)");
 
-                    b.Property<string>("InteresrRate")
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
+                    b.Property<int?>("InteresrRate")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastUpdatedCreditDate")
                         .HasColumnType("datetime2");

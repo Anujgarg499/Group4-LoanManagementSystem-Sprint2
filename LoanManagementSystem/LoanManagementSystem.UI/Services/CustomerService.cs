@@ -31,9 +31,17 @@ namespace LoanManagementSystem.UI.Services
                 HttpResponseMessage response = client.PostAsync("api/Customer/ApplyLoan", contentData).Result;
             }
         }
-        public LoanDetails CheckLoanStatus(string CustomerId)
+        public List<LoanDetails> CheckLoanStatus(string id)
         {
-            throw new NotImplementedException();
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:25813/"); //set API address
+                MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json"); //set the media type format as json
+                client.DefaultRequestHeaders.Accept.Add(contentType); //set the media type as json
+                HttpResponseMessage response = client.GetAsync("api/Customer/GetStatus/" + id).Result;
+                List<LoanDetails> loanDetails = JsonConvert.DeserializeObject<List<LoanDetails>>(response.Content.ReadAsStringAsync().Result);
+                return loanDetails;
+            }
         }
         public bool IsLoginCustomer(string CustomerId, string CustomerPassword)
         {

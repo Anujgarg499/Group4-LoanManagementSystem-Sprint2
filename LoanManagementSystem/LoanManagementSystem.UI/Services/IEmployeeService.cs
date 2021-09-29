@@ -11,10 +11,12 @@ namespace LoanManagementSystem.UI.Services
         bool IsLoginBankEmployee(string EmpId, string EmpPassword);
         List<Customer> ViewCustomers();
         Customer SearchCustomerById(string CustomerId);
-        void DeleteCustomerById(string CustomerId, decimal LoanAccNumber);
-        void LoanApproval(string CustomerId, string EmpId);
-        void LoanRejection(string CustomerId, string EmpId, decimal LoanAccNumber);
-        List<LoanDetails> ViewPendingCustomers();
-        bool CheckCriteria(string CustomerId);
+        LoanDetails SearchCustomerByLoanAccNumber(string LoanAccNumber);
+        void DeleteCustomerById(string CustomerId, string LoanAccNumber);        
+        void LoanApprovalorRejection(LoanDetails loanDetails);
+        List<PendingCustomers> ViewPendingCustomers();
+        List<PendingCustomers> ViewRejectedCustomers();
+        string CheckCriteria(string CustomerId);
+        public string CheckApproval(string CustomerId, string LoanAccNumber);
     }
 }

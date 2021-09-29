@@ -11,12 +11,20 @@ namespace LoanManagementSystem.UI.Services
 {
     public class EmployeeService : IEmployeeService
     {
-        public bool CheckCriteria(string CustomerId)
+        public string CheckCriteria(string CustomerId)
         {
-            throw new NotImplementedException();
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:25813/"); //set API address
+                MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json"); //set the media type format as json
+                client.DefaultRequestHeaders.Accept.Add(contentType); //set the media type as json
+                HttpResponseMessage response = client.GetAsync("api/Employee/GetCustomerEligibility/" + CustomerId).Result;
+                var status = JsonConvert.DeserializeObject<string>(response.Content.ReadAsStringAsync().Result);
+                return status;
+            }
         }
 
-        public void DeleteCustomerById(string CustomerId, decimal LoanAccNumber)
+        public void DeleteCustomerById(string CustomerId, string LoanAccNumber)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -30,15 +38,15 @@ namespace LoanManagementSystem.UI.Services
         {
             throw new NotImplementedException();
         }
-
-        public void LoanApproval(string CustomerId, string EmpId)
+        public void LoanApprovalorRejection(LoanDetails loanDetails)
         {
-            throw new NotImplementedException();
-        }
-
-        public void LoanRejection(string CustomerId, string EmpId, decimal LoanAccNumber)
-        {
-            throw new NotImplementedException();
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:25813/");
+                var contentData = new StringContent(JsonConvert.SerializeObject(loanDetails),
+                System.Text.Encoding.UTF8, "application/json"); //convert Item into Json type.
+                HttpResponseMessage response = client.PutAsync("api/Customer/UpdateCustomer", contentData).Result;
+            }
         }
 
         public Customer SearchCustomerById(string CustomerId)
@@ -51,6 +59,18 @@ namespace LoanManagementSystem.UI.Services
                 HttpResponseMessage response = client.GetAsync("api/Employee/GetCustomer/" + CustomerId).Result;
                 Customer customer = JsonConvert.DeserializeObject<Customer>(response.Content.ReadAsStringAsync().Result);
                 return customer;
+            }
+        }
+        public LoanDetails SearchCustomerByLoanAccNumber(string LoanAccNumber)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:25813/"); //set API address
+                MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json"); //set the media type format as json
+                client.DefaultRequestHeaders.Accept.Add(contentType); //set the media type as json
+                HttpResponseMessage response = client.GetAsync("api/Employee/GetCustomer/" + LoanAccNumber).Result;
+                LoanDetails details = JsonConvert.DeserializeObject<LoanDetails>(response.Content.ReadAsStringAsync().Result);
+                return details;
             }
         }
 
@@ -67,9 +87,41 @@ namespace LoanManagementSystem.UI.Services
             }
         }
 
-        public List<LoanDetails> ViewPendingCustomers()
+        public List<PendingCustomers> ViewPendingCustomers()
         {
-            throw new NotImplementedException();
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:25813/"); //set API address
+                MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json"); //set the media type format as json
+                client.DefaultRequestHeaders.Accept.Add(contentType); //set the media type as json
+                HttpResponseMessage response = client.GetAsync("api/Employee/ViewPendingCustomers").Result;
+                List<PendingCustomers> pendingcustomers = JsonConvert.DeserializeObject<List<PendingCustomers>>(response.Content.ReadAsStringAsync().Result);
+                return pendingcustomers;
+            }
+        }
+        public List<PendingCustomers> ViewRejectedCustomers()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:25813/"); //set API address
+                MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json"); //set the media type format as json
+                client.DefaultRequestHeaders.Accept.Add(contentType); //set the media type as json
+                HttpResponseMessage response = client.GetAsync("api/Employee/ViewRejectedCustomers").Result;
+                List<PendingCustomers> pendingcustomers = JsonConvert.DeserializeObject<List<PendingCustomers>>(response.Content.ReadAsStringAsync().Result);
+                return pendingcustomers;
+            }
+        }
+        public string CheckApproval(string CustomerId, string LoanAccNumber)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:25813/"); //set API address
+                MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json"); //set the media type format as json
+                client.DefaultRequestHeaders.Accept.Add(contentType); //set the media type as json
+                HttpResponseMessage response = client.GetAsync("api/Employee/GetCheckApproval/" + CustomerId + "?" + LoanAccNumber).Result;
+                string status = JsonConvert.DeserializeObject<string>(response.Content.ReadAsStringAsync().Result);
+                return status;
+            }
         }
     }
 }

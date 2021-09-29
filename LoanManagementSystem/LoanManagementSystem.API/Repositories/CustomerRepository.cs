@@ -33,7 +33,7 @@ namespace LoanManagementSystem.API.Repositories
         public void ApplyLoan(LoanDetails loandetails)
         {
             try
-            {
+            {                             
                 db.LoanDetails.Add(loandetails);
                 db.SaveChanges();
             }
@@ -44,12 +44,25 @@ namespace LoanManagementSystem.API.Repositories
             }
         }
 
-        public LoanDetails CheckLoanStatus(string CustomerId)
+        public List<LoanDetails> CheckLoanStatus(string CustomerId)
         {
             try
             {
-                LoanDetails loanDetails = db.LoanDetails.Find(CustomerId);
-                return loanDetails;
+                List<LoanDetails> details = new List<LoanDetails>();
+                var query= db.LoanDetails.Where(l => l.CustomerId == CustomerId);
+                foreach(var status in query)
+                {
+                    var loanDetails = new LoanDetails()
+                    {
+                        CustomerId=status.CustomerId,
+                        LoanAccNumber=status.LoanAccNumber,
+                        LoanAmount=status.LoanAmount,
+                        LoanStatus=status.LoanStatus,
+                        LoanType=status.LoanType
+                    };
+                    details.Add(loanDetails);
+                }
+                return details;
             }
             catch (Exception)
             {

@@ -55,7 +55,7 @@ namespace LoanManagementSystem.API.Controllers
             {
                 try
                 {
-                    LoanDetails loanDetails = customerRepository.CheckLoanStatus(id);
+                    List<LoanDetails> loanDetails = customerRepository.CheckLoanStatus(id);
                     return Ok(loanDetails);
                 }
                 catch (Exception ex)

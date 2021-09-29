@@ -57,7 +57,7 @@ namespace LoanManagementSystem.API.DBAccess.Migrations
                     LoanApprovedDate = table.Column<DateTime>(type: "datetime2", maxLength: 30, nullable: false),
                     LoanStatus = table.Column<string>(type: "varchar", nullable: true,defaultValueSql: "Pending"),
                     DispersalDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    InteresrRate = table.Column<decimal>(type: "numeric", nullable: false),
+                    InteresrRate = table.Column<decimal>(type: "numeric", nullable: false,defaultValueSql:"10",defaultValue:10),
                     Tenure = table.Column<decimal>(type: "numeric", nullable: true),
                     EmiStartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     EmiEndDate = table.Column<DateTime>(type: "datetime2", nullable: true),

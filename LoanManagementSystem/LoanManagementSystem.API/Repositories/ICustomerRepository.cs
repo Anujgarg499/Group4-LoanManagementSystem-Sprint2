@@ -13,6 +13,6 @@ namespace LoanManagementSystem.API.Repositories
         bool IsLoginCustomer(string CustomerId, string CustomerPassword);
         void ApplyLoan(LoanDetails loandetails);
         Customer SearchCustomerById(string CustomerId);
-        LoanDetails CheckLoanStatus(string CustomerId);
+        List<LoanDetails> CheckLoanStatus(string CustomerId);        
     }
 }

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<LoanManagementSystem.UI.Models.PendingCustomers>
+
+@{
+    ViewData["Title"] = "DeleteRejectedLoan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>DeleteRejectedLoan</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoanAccNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoanStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanAccNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanStatus)
+            </td>
+            <td>                
+                @Html.ActionLink("Delete", "DeleteCustomerById", new { id=item.CustomerId, loanAccountNumber=item.LoanAccNumber })                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

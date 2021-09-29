@@ -26,7 +26,7 @@ namespace LoanManagementSystem.UI.Models
         [Required(ErrorMessage = "Please enter your Address")]
         public string Address { get; set; }
         [Required(ErrorMessage = "Please provide the PanNumber")]
-        [RegularExpression(@"^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}$", ErrorMessage = "Please enter the correct PanNumber Ex: ASDFG1234H")]
+        [RegularExpression(@"^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}$", ErrorMessage = "Please enter the correct PanNumber Ex: XXXXX0000X")]
         public string PanNumber { get; set; }
         [Required(ErrorMessage = "Please provide the AadharNumber")]
         [RegularExpression(@"^[0-9]{12}$", ErrorMessage = "Please enter the correct AadharNumber")]

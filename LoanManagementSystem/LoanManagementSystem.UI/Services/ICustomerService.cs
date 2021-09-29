@@ -13,6 +13,6 @@ namespace LoanManagementSystem.UI.Services
         Customer SearchCustomerById(string CustomerId);
         bool IsLoginCustomer(string CustomerId, string CustomerPassword);
         void ApplyLoan(LoanDetails loandetails);
-        LoanDetails CheckLoanStatus(string CustomerId);
+        List<LoanDetails> CheckLoanStatus(string CustomerId);
     }
 }

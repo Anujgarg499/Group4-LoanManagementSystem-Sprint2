@@ -15,12 +15,23 @@ namespace LoanManagementSystem.API.Repositories
             this.db = db;
         }
 
-        public bool CheckCriteria(string CustomerId)
+        public string CheckCriteria(string CustomerId)
         {
-            throw new NotImplementedException();
+            string isEligible = "";
+            List<LoanDetails> loanDetails = db.LoanDetails.ToList();
+            var checkcriteria = (from loan in loanDetails where loan.CustomerId == CustomerId && loan.LoanStatus == "Approved" select loan).Count();
+            if(checkcriteria == 1)
+            {
+                isEligible = "Not Eligible";
+            }
+            else
+            {
+                isEligible = "Eligible";
+            }
+            return isEligible;
         }
 
-        public void DeleteCustomerById(string CustomerId, decimal LoanAccNumber)
+        public void DeleteCustomerById(string CustomerId, string LoanAccNumber)
         {
             try
             {
@@ -42,14 +53,23 @@ namespace LoanManagementSystem.API.Repositories
             throw new NotImplementedException();
         }
 
-        public void LoanApproval(string CustomerId, string EmpId)
+        public void LoanApprovalorRejection(LoanDetails loanDetails)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                /*string LoanAccNumber = loanDetails.LoanAccNumber;
+                LoanDetails details = db.LoanDetails.Find(LoanAccNumber);
+                if (details != null)
+                {*/
+                    db.LoanDetails.Update(loanDetails);
+                    db.SaveChanges();
+                /*}*/
+            }
+            catch (Exception)
+            {
 
-        public void LoanRejection(string CustomerId, string EmpId, decimal LoanAccNumber)
-        {
-            throw new NotImplementedException();
+                throw;
+            }
         }
 
         public Customer SearchCustomerById(string CustomerId)
@@ -58,6 +78,20 @@ namespace LoanManagementSystem.API.Repositories
             {
                 Customer customer = db.Customers.Find(CustomerId);
                 return customer;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public LoanDetails SearchCustomerByLoanAccNumber(string LoanAccNumber)
+        {
+            try
+            {
+                LoanDetails details = db.LoanDetails.Find(LoanAccNumber);
+                return details;
 
             }
             catch (Exception)
@@ -96,21 +130,99 @@ namespace LoanManagementSystem.API.Repositories
                                            LoanAccNumber=loan.LoanAccNumber,
                                            FirstName=customer.FirstName,
                                            LastName=customer.LastName,
-                                           LoanStatus=loan.LoanStatus
+                                           LoanStatus=loan.LoanStatus,
+                                           LoanAmount=loan.LoanAmount
                                        };
             foreach(var item in pendingCustomerquery)
             {
                 var PendingCustomers = new PendingCustomers()
                 {
                     CustomerId = item.CustomerId,
-                    LoanAccNumber =decimal.Parse(item.LoanAccNumber),
+                    LoanAccNumber =item.LoanAccNumber,
                     FirstName = item.FirstName,
                     LastName = item.LastName,
-                    LoanStatus = item.LoanStatus
+                    LoanStatus = item.LoanStatus,
+                    LoanAmount=item.LoanAmount
                 };                
                 pendingCustomers.Add(PendingCustomers);
             }
             return pendingCustomers;
+        }
+        public List<PendingCustomers> ViewRejectedCustomers()
+        {
+            List<Customer> customers = db.Customers.ToList();
+            List<LoanDetails> loanDetails = db.LoanDetails.ToList();
+            List<PendingCustomers> rejectedCustomers = new List<PendingCustomers>();
+            var rejectedCustomerquery = from customer in customers
+                                        join loan in loanDetails on customer.CustomerId equals loan.CustomerId
+                                        where loan.LoanStatus == "Rejected"
+                                        select new
+                                        {
+                                            CustomerId = customer.CustomerId,
+                                            LoanAccNumber = loan.LoanAccNumber,
+                                            FirstName = customer.FirstName,
+                                            LastName = customer.LastName,
+                                            LoanStatus = loan.LoanStatus,
+                                            LoanAmount = loan.LoanAmount
+                                        };
+            foreach (var item in rejectedCustomerquery)
+            {
+                var PendingCustomers = new PendingCustomers()
+                {
+                    CustomerId = item.CustomerId,
+                    LoanAccNumber = item.LoanAccNumber,
+                    FirstName = item.FirstName,
+                    LastName = item.LastName,
+                    LoanStatus = item.LoanStatus,
+                    LoanAmount = item.LoanAmount
+                };
+                rejectedCustomers.Add(PendingCustomers);
+            }
+            return rejectedCustomers;
+        }
+        public string CheckApproval(string CustomerId, string LoanAccNumber)
+        {
+            try
+            {
+                string status = null;
+                List<LoanDetails> loanDetails = db.LoanDetails.ToList();
+                int count = (from customer in loanDetails
+                             where customer.CustomerId == CustomerId
+                             & customer.LoanStatus == "Approved"
+                             select customer).Count();
+                if (count == 1)
+                {
+                    var customers = (from customer in loanDetails
+                                     where customer.CustomerId == CustomerId
+                                     & customer.LoanStatus == "Approved"
+                                     select customer);
+                    foreach (var item in customers)
+                    {
+                        status = "Rejected";
+                        item.LoanStatus = "Rejected";
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    var customers = (from customer in loanDetails
+                                     where customer.CustomerId == CustomerId
+                                     & customer.LoanAccNumber == LoanAccNumber
+                                     select customer);
+                    foreach (var item in customers)
+                    {
+                        status = "Approved";
+                        item.LoanStatus = "Approved";
+                        db.SaveChanges();
+                    }
+                }
+                return status;
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

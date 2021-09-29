@@ -61,7 +61,7 @@ namespace LoanManagementSystem.UI.Controllers
                 loanDetails.EmpId = "Admin123";*/
                 if (ModelState.IsValid)
                 {
-                    //loanDetails.EmpId = null;
+                    //loanDetails.EmpId = null;                    
                     customerService.ApplyLoan(loanDetails);
                     return RedirectToAction("Index");
                 }
@@ -95,6 +95,18 @@ namespace LoanManagementSystem.UI.Controllers
                 {
                     return View();
                 }
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+        }
+        public IActionResult GetStatus(string CustomerId)
+        {
+            try
+            {
+                List<LoanDetails> loanDetails = customerService.CheckLoanStatus(CustomerId); 
+                return View(loanDetails);
             }
             catch (Exception)
             {

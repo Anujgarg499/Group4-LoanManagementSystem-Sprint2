@@ -12,7 +12,9 @@ namespace LoanManagementSystem.API.Entities
         [StringLength(30)]
         [Column(TypeName = "varchar")]
         public string CustomerId { get; set; }
-        public decimal? LoanAccNumber { get; set; }
+        [StringLength(30)]
+        [Column(TypeName = "varchar")]
+        public string LoanAccNumber { get; set; }
         [StringLength(30)]
         [Column(TypeName = "varchar")]
         public string FirstName { get; set; }
@@ -20,6 +22,8 @@ namespace LoanManagementSystem.API.Entities
         [Column(TypeName = "varchar")]
         public string LastName { get; set; }
         [Column(TypeName = "varchar")]
-        public string LoanStatus { get; set; }
+        public string LoanStatus { get; set; }        
+        [Column(TypeName = "numeric")]
+        public decimal LoanAmount { get; set; }
     }
 }

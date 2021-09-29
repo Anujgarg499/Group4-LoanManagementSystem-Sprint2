@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace LoanManagementSystem.UI.Models
 {
     public class LoanDetails
-    {
+    {        
         public string LoanAccNumber { get; set; }
         [Required(ErrorMessage = "Please enter LoanAmount")]
         public decimal LoanAmount { get; set; }
@@ -17,21 +17,21 @@ namespace LoanManagementSystem.UI.Models
         public string CustomerId { get; set; }
         //[Required(ErrorMessage = "EmpId is required")]
         public string EmpId { get; set; }
-        [Required(ErrorMessage = "Please select the type of loan")]
+        //[Required(ErrorMessage = "Please select the type of loan")]
         public string LoanType { get; set; }
         public DateTime? LoanApprovedDate { get; set; }
         public string LoanStatus { get; set; } = "Pending";
         [DataType(DataType.Date)]
         [DisplayName("DispersalDate")]
         public DateTime? DispersalDate { get; set; }
-        [Required(ErrorMessage = "Please enter the Interest Rate")]
-        public decimal InterestRate { get; set; }        
+        //[DefaultValue(10)]
+        public string InterestRate { get; set; } = "10";     
         public decimal? Tenure { get; set; }
         public DateTime? EmiStartDate { get; set; }
         public DateTime? EmiEndDate { get; set; }
         public decimal? EmiAmount { get; set; }
         public decimal? CreditLimit { get; set; }
         public DateTime? LastUpdatedCreditDate { get; set; }
-        public decimal? CustomerAssetId { get; set; }
+        public decimal? CustomerAssetId { get; set; }        
     }
 }

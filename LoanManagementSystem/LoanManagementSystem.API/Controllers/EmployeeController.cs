@@ -46,9 +46,23 @@ namespace LoanManagementSystem.API.Controllers
                 return Content(ex.Message);
             }
         }
+        [HttpGet]
+        [Route("GetCustomerLoan")]
+        public IActionResult GetCustomerByLoanAccNumber(string LoanAccNumber)
+        {
+            try
+            {
+                LoanDetails details = employeeRepository.SearchCustomerByLoanAccNumber(LoanAccNumber);
+                return Ok(details);
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+        }
         [HttpDelete]
         [Route("DeleteCustomer/{id}/{loanAccountNumber}")]
-        public IActionResult DeleteCustomerById(string id, decimal loanAccountNumber)
+        public IActionResult DeleteCustomerById(string id, string loanAccountNumber)
         {
             try
             {
@@ -68,6 +82,63 @@ namespace LoanManagementSystem.API.Controllers
             {
                 List<PendingCustomers> pendingcustomers = employeeRepository.ViewPendingCustomers();
                 return Ok(pendingcustomers);
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("ViewRejectedCustomers")]
+        public IActionResult GetRejectedCustomers()
+        {
+            try
+            {
+                List<PendingCustomers> rejectedcustomers = employeeRepository.ViewRejectedCustomers();
+                return Ok(rejectedcustomers);
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetCustomerEligibility/{id}")]
+        public IActionResult GetCustomerEligibility(string id)
+        {
+            try
+            {
+                string status = employeeRepository.CheckCriteria(id);
+                return Ok(status);
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("UpdateLoanStatus")]
+        public IActionResult PutLoanStatus(LoanDetails loanDetails)
+        {
+            try
+            {
+                employeeRepository.LoanApprovalorRejection(loanDetails);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return Content(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetCheckApproval/{id}/{loanAccountNumber}")]
+        public IActionResult GetCheckApproval(string customerid, string loanAccountNumber)
+        {
+            try
+            {
+                string status = employeeRepository.CheckApproval(customerid, loanAccountNumber);
+                return Ok(status);
             }
             catch (Exception ex)
             {

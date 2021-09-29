@@ -1,74 +1,73 @@
 ﻿@model LoanManagementSystem.UI.Models.LoanDetails
 
 @{
-    ViewData["Title"] = "Apply";
+    ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Apply</h1>
+<h1>Edit</h1>
 
 <h4>LoanDetails</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Apply">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="LoanAccNumber" class="control-label"></label>
                 <input asp-for="LoanAccNumber" class="form-control"/>
                 <span asp-validation-for="LoanAccNumber" class="text-danger"></span>
-            </div>            
+            </div>
             <div class="form-group">
                 <label asp-for="LoanAmount" class="control-label"></label>
-                <input asp-for="LoanAmount" class="form-control" />
+                <input asp-for="LoanAmount" class="form-control"/>
                 <span asp-validation-for="LoanAmount" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CustomerId" class="control-label"></label>
-                <input asp-for="CustomerId" class="form-control" />
+                <input asp-for="CustomerId" class="form-control"/>
                 <span asp-validation-for="CustomerId" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
+            <div class="form-group">
                 <label asp-for="EmpId" class="control-label"></label>
                 <input asp-for="EmpId" class="form-control" />
                 <span asp-validation-for="EmpId" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="LoanType" class="control-label"></label>
+                <input asp-for="LoanType" class="form-control" />
+                <span asp-validation-for="LoanType" class="text-danger"></span>
             </div>*@
-        <div class="form-group">
-            <label asp-for="LoanType" class="control-label"></label>
-            @*<input asp-for="LoanType" class="form-control" />*@
-            <select asp-for="LoanType" class="form-control">
-                <option value="HomeLoan" id="HomeLoan">HomeLoan</option>
-                <option value="VehicleLoan" id="VehicleLoan">VehicleLoan</option>
-                <option value="EducationLoan" id="EducationLoan">EducationLoan</option>
-            </select>
-            <span asp-validation-for="LoanType" class="text-danger"></span>
-        </div>
             @*<div class="form-group">
                 <label asp-for="LoanApprovedDate" class="control-label"></label>
                 <input asp-for="LoanApprovedDate" class="form-control" />
                 <span asp-validation-for="LoanApprovedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LoanStatus" class="control-label"></label>
-                <input asp-for="LoanStatus" class="form-control" />
-                <span asp-validation-for="LoanStatus" class="text-danger"></span>
             </div>*@
+        <div class="form-group">
+            <label asp-for="LoanStatus" class="control-label"></label>
+            @*<input asp-for="LoanStatus" class="form-control" />*@
+            <select asp-for="LoanType" class="form-control">
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>                
+            </select>
+            <span asp-validation-for="LoanStatus" class="text-danger"></span>
+        </div>
             @*<div class="form-group">
                 <label asp-for="DispersalDate" class="control-label"></label>
                 <input asp-for="DispersalDate" class="form-control" />
                 <span asp-validation-for="DispersalDate" class="text-danger"></span>
             </div>*@
-            <div class="form-group">
-                @*<label asp-for="InterestRate" class="control-label"></label>*@
-                <input asp-for="InterestRate" class="form-control" hidden/>
-                @*<span asp-validation-for="InterestRate" class="text-danger"></span>*@
-            </div>
-            <div class="form-group">
+            @*<div class="form-group">
+                <label asp-for="InterestRate" class="control-label"></label>
+                <input asp-for="InterestRate" class="form-control" />
+                <span asp-validation-for="InterestRate" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
                 <label asp-for="Tenure" class="control-label"></label>
                 <input asp-for="Tenure" class="form-control" />
                 <span asp-validation-for="Tenure" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
+            <div class="form-group">
                 <label asp-for="EmiStartDate" class="control-label"></label>
                 <input asp-for="EmiStartDate" class="form-control" />
                 <span asp-validation-for="EmiStartDate" class="text-danger"></span>
@@ -99,14 +98,14 @@
                 <span asp-validation-for="CustomerAssetId" class="text-danger"></span>
             </div>*@
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="LoanProcessing">Back to List</a>
 </div>
 
 @section Scripts {

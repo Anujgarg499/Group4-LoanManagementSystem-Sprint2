@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace LoanManagementSystem.API.Entities
 {
@@ -29,7 +30,7 @@ namespace LoanManagementSystem.API.Entities
         [ForeignKey("Employee")]
         public string EmpId { get; set; }
         public Employee Employee { get; set; }
-        [Required]
+       //[Required]
         [StringLength(30)]
         [Column(TypeName = "varchar")]
         public string LoanType { get; set; }              
@@ -38,9 +39,9 @@ namespace LoanManagementSystem.API.Entities
         [Column(TypeName = "varchar")]
         public string LoanStatus { get; set; }        
         public DateTime? DispersalDate { get; set; }
-        [Required]
-        [Column(TypeName = "numeric")]
-        public decimal InteresrRate { get; set; }
+        [StringLength(30)]
+        [Column(TypeName = "varchar")]
+        public string InteresrRate { get; set; }
         [Column(TypeName = "numeric")]
         public decimal? Tenure { get; set; }            
         public DateTime? EmiStartDate { get; set; }

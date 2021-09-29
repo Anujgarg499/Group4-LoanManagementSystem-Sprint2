@@ -44,12 +44,89 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
-        public IActionResult DeleteCustomerLoan(string CustomerId, decimal LoanAccNumber)
+        public IActionResult DeleteCustomerLoan(string CustomerId, string LoanAccNumber)
         {
             try
             {
                 employeeService.DeleteCustomerById(CustomerId,LoanAccNumber);
-                return RedirectToAction("Index");
+                return RedirectToAction("DeleteRejectedLoan");
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+        }
+        public IActionResult LoanProcessing()
+        {
+            try
+            {
+                List<PendingCustomers> pendingcustomers = employeeService.ViewPendingCustomers();
+                return View(pendingcustomers);
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+        }
+        public IActionResult DeleteRejectedLoan()
+        {
+            try
+            {
+                List<PendingCustomers> pendingcustomers = employeeService.ViewRejectedCustomers();
+                return View(pendingcustomers);
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+        }
+        public IActionResult GetCustomerEligibility(string customerid)
+        {
+            try
+            {
+                var status = employeeService.CheckCriteria(customerid);
+                ViewData["status"] = status;
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+        }
+        [HttpGet]
+        public IActionResult Edit(string LoanAccNumber)
+        {
+            LoanDetails details = employeeService.SearchCustomerByLoanAccNumber(LoanAccNumber);            
+            return View(details);
+        }
+        [HttpPost]
+        public IActionResult Edit(LoanDetails loanDetails)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    employeeService.LoanApprovalorRejection(loanDetails);
+                    return RedirectToAction("LoanProcessing");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetCheckApproval(string customerid, string loanaccnumber)
+        {
+            try
+            {
+                employeeService.CheckApproval(customerid, loanaccnumber);
+                return View();
             }
             catch (Exception)
             {

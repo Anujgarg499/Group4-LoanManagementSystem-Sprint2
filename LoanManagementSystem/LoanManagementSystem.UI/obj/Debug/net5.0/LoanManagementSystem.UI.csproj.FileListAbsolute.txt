@@ -121,3 +121,9 @@ E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManageme
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\GetCustomer.cshtml.g.cs
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Customer\Apply.cshtml.g.cs
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Customer\Edit.cshtml.g.cs
+E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\LoanProcessing.cshtml.g.cs
+E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\DeleteRejectedLoan.cshtml.g.cs
+E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Customer\GetStatus.cshtml.g.cs
+E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\GetCustomerEligibility.cshtml.g.cs
+E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\Edit.cshtml.g.cs
+E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\GetCheckApproval.cshtml.g.cs
