@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSystem.UI.Services
 {
+    // Customer Service Interface
     public interface ICustomerService
     {
         void AddCustomer(Customer customer);

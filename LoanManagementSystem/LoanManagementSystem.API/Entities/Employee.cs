@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LoanManagementSystem.API.Entities
 {
+    // Getting and Setting Employee Entities Details
     [Table("Employee")]
     public class Employee
     {

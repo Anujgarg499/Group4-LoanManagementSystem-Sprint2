@@ -4,8 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Main Menu</h1>
 
-<div class="container">
-    <a asp-action="ViewCustomer"><h1>View All Customers</h1></a>    
+<div>
+    <a asp-area="" asp-controller="Employee" asp-action="ViewCustomer">View All Customers</a>
+    <br />
+    <hr />
+    <a asp-area="" asp-controller="Employee" asp-action="LoanProcessing">Loan Processing</a>    
 </div>

@@ -4,6 +4,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Main Menu</h1>
 
+<div>
+    <a asp-area="" asp-controller="Customer" asp-action="Create">Register Customer</a>
+    <br />
+    <hr />
+    <a asp-area="" asp-controller="Customer" asp-action="Apply">Apply Loan</a>
+    <br />
+    <hr />
+    <a asp-area="" asp-controller="Customer" asp-action="Edit">Update Customer</a>
+    @*<br />
+    <hr />
+    <a asp-area="" asp-controller="Customer" asp-action="GetStatus">Get Loan Status</a>*@
+</div>
 

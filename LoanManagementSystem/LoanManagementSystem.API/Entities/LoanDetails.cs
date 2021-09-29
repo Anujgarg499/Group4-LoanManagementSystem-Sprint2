@@ -8,6 +8,7 @@ using System.ComponentModel;
 
 namespace LoanManagementSystem.API.Entities
 {
+    // Getting and Setting LoanDetails Entities Details
     [Table("LoanDetails")]
     public class LoanDetails
     {

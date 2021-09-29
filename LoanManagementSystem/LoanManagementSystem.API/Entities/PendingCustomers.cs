@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LoanManagementSystem.API.Entities
 {
+    // Getting and Setting Pending Customer Entities Details
     public class PendingCustomers
     {
         [StringLength(30)]

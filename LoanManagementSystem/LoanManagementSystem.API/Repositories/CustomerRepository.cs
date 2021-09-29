@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSystem.API.Repositories
 {    
+    // Customer Repository implementing Customer Repository Interface
     public class CustomerRepository:ICustomerRepository
     {
         LoanManagementSystemDBContext db = null;
@@ -15,6 +16,7 @@ namespace LoanManagementSystem.API.Repositories
             this.db = db;
         }
 
+        // For Regestering the Customer to the Customer Table in the Database
         public void AddCustomer(Customer customer)
         {
             try
@@ -30,6 +32,7 @@ namespace LoanManagementSystem.API.Repositories
             
         }
 
+        // For Applying the Loan and entering the Details to the LoanDetails Table in the Database
         public void ApplyLoan(LoanDetails loandetails)
         {
             try
@@ -44,6 +47,7 @@ namespace LoanManagementSystem.API.Repositories
             }
         }
 
+        // For Checking the loan status 
         public List<LoanDetails> CheckLoanStatus(string CustomerId)
         {
             try
@@ -76,6 +80,7 @@ namespace LoanManagementSystem.API.Repositories
             throw new NotImplementedException();
         }
 
+        // For Updating Customer By Id into the Database
         public void UpdateCustomerById(Customer customer)
         {
             try
@@ -89,6 +94,8 @@ namespace LoanManagementSystem.API.Repositories
                 throw;
             }
         }
+
+        // For Searching Customer By Id from the Database
         public Customer SearchCustomerById(string CustomerId)
         {
             try

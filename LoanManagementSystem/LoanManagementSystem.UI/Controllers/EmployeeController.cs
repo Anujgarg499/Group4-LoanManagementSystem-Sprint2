@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSystem.UI.Controllers
 {
+    // Employee Controller
     public class EmployeeController : Controller
     {
         private readonly IEmployeeService employeeService;
@@ -16,10 +17,14 @@ namespace LoanManagementSystem.UI.Controllers
         {
             this.employeeService = employeeService;
         }
+
+        // For the Main Page of Employee
         public IActionResult Index()
         {
             return View();
         }
+
+        // For Viewing All the Customers
         public IActionResult ViewCustomer()
         {
             try
@@ -32,6 +37,8 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
+
+        // For getting Customer By Id
         public IActionResult GetCustomer(string customerid)
         {
             try
@@ -44,6 +51,8 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
+
+        // For Delete Customer Loan
         public IActionResult DeleteCustomerLoan(string CustomerId, string LoanAccNumber)
         {
             try
@@ -56,6 +65,8 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
+
+        // For Viewing all the Customer where Loan Status is Pending and processing the Loan
         public IActionResult LoanProcessing()
         {
             try
@@ -68,6 +79,8 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
+
+        // For Deleting Rejected Loans of Customer
         public IActionResult DeleteRejectedLoan()
         {
             try
@@ -80,7 +93,7 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
-        public IActionResult GetCustomerEligibility(string customerid)
+        /*public IActionResult GetCustomerEligibility(string customerid)
         {
             try
             {
@@ -92,14 +105,14 @@ namespace LoanManagementSystem.UI.Controllers
             {
                 return View("Error");
             }
-        }
+        }*/
         [HttpGet]
         public IActionResult Edit(string LoanAccNumber)
         {
             LoanDetails details = employeeService.SearchCustomerByLoanAccNumber(LoanAccNumber);            
             return View(details);
         }
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult Edit(LoanDetails loanDetails)
         {
             try
@@ -118,8 +131,9 @@ namespace LoanManagementSystem.UI.Controllers
             {
                 return View("Error");
             }
-        }
+        }*/
 
+        // For Loan Approval or Rejection
         [HttpGet]
         public IActionResult GetCheckApproval(string customerid, string loanaccnumber)
         {

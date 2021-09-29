@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSystem.UI.Services
 {
+    // Employee Service for Connecting UI to API using HTTPCLient
     public class EmployeeService : IEmployeeService
     {
-        public string CheckCriteria(string CustomerId)
+        /*public string CheckCriteria(string CustomerId)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -22,7 +23,8 @@ namespace LoanManagementSystem.UI.Services
                 var status = JsonConvert.DeserializeObject<string>(response.Content.ReadAsStringAsync().Result);
                 return status;
             }
-        }
+        }*/
+
 
         public void DeleteCustomerById(string CustomerId, string LoanAccNumber)
         {
@@ -38,7 +40,7 @@ namespace LoanManagementSystem.UI.Services
         {
             throw new NotImplementedException();
         }
-        public void LoanApprovalorRejection(LoanDetails loanDetails)
+        /*public void LoanApprovalorRejection(LoanDetails loanDetails)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -47,7 +49,7 @@ namespace LoanManagementSystem.UI.Services
                 System.Text.Encoding.UTF8, "application/json"); //convert Item into Json type.
                 HttpResponseMessage response = client.PutAsync("api/Customer/UpdateCustomer", contentData).Result;
             }
-        }
+        }*/
 
         public Customer SearchCustomerById(string CustomerId)
         {

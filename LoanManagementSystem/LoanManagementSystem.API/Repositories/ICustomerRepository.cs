@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSystem.API.Repositories
 {
+    // Customer Repository Interface
     public interface ICustomerRepository
     {
         void AddCustomer(Customer customer);

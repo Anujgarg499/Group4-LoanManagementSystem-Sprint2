@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSystem.API.Repositories
 {
+    // Employee Repository implementing Employee Repository Interface
     public class EmployeeRepository:IEmployeeRepository
     {
         LoanManagementSystemDBContext db = null;
@@ -15,7 +16,7 @@ namespace LoanManagementSystem.API.Repositories
             this.db = db;
         }
 
-        public string CheckCriteria(string CustomerId)
+        /*public string CheckCriteria(string CustomerId)
         {
             string isEligible = "";
             List<LoanDetails> loanDetails = db.LoanDetails.ToList();
@@ -29,8 +30,9 @@ namespace LoanManagementSystem.API.Repositories
                 isEligible = "Eligible";
             }
             return isEligible;
-        }
+        }*/
 
+        // for Deleting Customer By Id those loans are Rejected
         public void DeleteCustomerById(string CustomerId, string LoanAccNumber)
         {
             try
@@ -53,25 +55,26 @@ namespace LoanManagementSystem.API.Repositories
             throw new NotImplementedException();
         }
 
-        public void LoanApprovalorRejection(LoanDetails loanDetails)
+       /* public void LoanApprovalorRejection(LoanDetails loanDetails)
         {
             try
             {
-                /*string LoanAccNumber = loanDetails.LoanAccNumber;
+                *//*string LoanAccNumber = loanDetails.LoanAccNumber;
                 LoanDetails details = db.LoanDetails.Find(LoanAccNumber);
                 if (details != null)
-                {*/
+                {*//*
                     db.LoanDetails.Update(loanDetails);
                     db.SaveChanges();
-                /*}*/
+                *//*}*//*
             }
             catch (Exception)
             {
 
                 throw;
             }
-        }
+        }*/
 
+        // For Searching A Customer by Id
         public Customer SearchCustomerById(string CustomerId)
         {
             try
@@ -86,6 +89,8 @@ namespace LoanManagementSystem.API.Repositories
                 throw;
             }
         }
+
+        // For Searching Customer By Loan Account Number
         public LoanDetails SearchCustomerByLoanAccNumber(string LoanAccNumber)
         {
             try
@@ -101,6 +106,7 @@ namespace LoanManagementSystem.API.Repositories
             }
         }
 
+        // For Viewing All the Customers in the Customer Table
         public List<Customer> ViewCustomers()
         {
             try
@@ -114,6 +120,8 @@ namespace LoanManagementSystem.API.Repositories
                 throw;
             }
         }
+
+        // For Viewing Customers those loan status is pending
         public List<PendingCustomers> ViewPendingCustomers()
         {
             /*List<PendingCustomers> pendingCustomers = db.PendingCustomers.FromSqlRaw("ViewPendingCustomers").ToList();
@@ -148,6 +156,8 @@ namespace LoanManagementSystem.API.Repositories
             }
             return pendingCustomers;
         }
+
+        // For Viewing Customer those loan status is Rejected
         public List<PendingCustomers> ViewRejectedCustomers()
         {
             List<Customer> customers = db.Customers.ToList();
@@ -180,6 +190,8 @@ namespace LoanManagementSystem.API.Repositories
             }
             return rejectedCustomers;
         }
+
+        // For Loan Processing Part(Approved or Rejected) the Loan status
         public string CheckApproval(string CustomerId, string LoanAccNumber)
         {
             try

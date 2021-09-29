@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSystem.UI.Services
 {
+    // Customer Service for Connecting UI to API using HTTPCLient
     public class CustomerService:ICustomerService
     {
         public void AddCustomer(Customer customer)
@@ -31,14 +32,14 @@ namespace LoanManagementSystem.UI.Services
                 HttpResponseMessage response = client.PostAsync("api/Customer/ApplyLoan", contentData).Result;
             }
         }
-        public List<LoanDetails> CheckLoanStatus(string id)
+        public List<LoanDetails> CheckLoanStatus(string CustomerId)
         {
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:25813/"); //set API address
                 MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json"); //set the media type format as json
                 client.DefaultRequestHeaders.Accept.Add(contentType); //set the media type as json
-                HttpResponseMessage response = client.GetAsync("api/Customer/GetStatus/" + id).Result;
+                HttpResponseMessage response = client.GetAsync("api/Customer/GetStatus/" + CustomerId).Result;
                 List<LoanDetails> loanDetails = JsonConvert.DeserializeObject<List<LoanDetails>>(response.Content.ReadAsStringAsync().Result);
                 return loanDetails;
             }

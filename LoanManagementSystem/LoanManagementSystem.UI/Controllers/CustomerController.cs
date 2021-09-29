@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSystem.UI.Controllers
 {
+    // Customer Controller
     public class CustomerController : Controller
     {
         private readonly ICustomerService customerService;
@@ -16,15 +17,20 @@ namespace LoanManagementSystem.UI.Controllers
         {
             this.customerService = service;
         }
+
+        // For Main Menu Page of Customer
         public IActionResult Index()
         {
             return View();
         }
+
+        // For Regestring Customer
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
+        // Posting the data filled to the API
         [HttpPost]
         public IActionResult Create(Customer customer)
         {
@@ -45,6 +51,8 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
+
+        // For Applying the Loan
         [HttpGet]
         public IActionResult Apply()
         {
@@ -52,6 +60,7 @@ namespace LoanManagementSystem.UI.Controllers
             ViewData["loanAccNumber"] = loanAccNumber;*/
             return View();
         }
+        // Posting the data to the API
         [HttpPost]
         public IActionResult Apply(LoanDetails loanDetails)
         {
@@ -75,12 +84,15 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
+
+        // For Updating the Customer Details
         [HttpGet]
         public IActionResult Edit(string id)
         {
             Customer customer = customerService.SearchCustomerById(id);
             return View(customer);
         }
+        // Posting back the Updated data to the Api
         [HttpPost]
         public IActionResult Edit(Customer customer)
         {
@@ -101,6 +113,9 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
+        
+        // For Checking Loan Status of Customer
+        [HttpGet]
         public IActionResult GetStatus(string CustomerId)
         {
             try

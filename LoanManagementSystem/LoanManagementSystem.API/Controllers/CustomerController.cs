@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSystem.API.Controllers
 {
+    // Customer Controller
     [Route("api/[controller]")]
     [ApiController]
         public class CustomerController : ControllerBase
@@ -19,6 +20,8 @@ namespace LoanManagementSystem.API.Controllers
             {
                 this.customerRepository = repository;
             }
+
+        // For Regestring Customer 
             [HttpPost]
             [Route("AddCustomer")]
             public IActionResult PostCustomer(Customer customer)
@@ -34,6 +37,8 @@ namespace LoanManagementSystem.API.Controllers
                     throw;
                 }
             }
+
+        // For Applying Loan By Customer
             [HttpPost]
             [Route("ApplyLoan")]
             public IActionResult PostLoan(LoanDetails loanDetails)
@@ -49,6 +54,8 @@ namespace LoanManagementSystem.API.Controllers
                     return Content(ex.Message);
                 }
             }
+
+        // For Checking Loan Status of Customer
             [HttpGet]
             [Route("GetStatus/{id}")]
             public IActionResult GetStatus(string id)
@@ -64,6 +71,8 @@ namespace LoanManagementSystem.API.Controllers
                     return Content(ex.Message);
                 }
             }
+
+        // For Updating Customer By Id
             [HttpPut]
             [Route("UpdateCustomer")]
             public IActionResult PutCustomer(Customer customer)
@@ -79,6 +88,8 @@ namespace LoanManagementSystem.API.Controllers
                     return Content(ex.Message);
                 }
             }
+
+        // For Searching Customer By Id 
         [HttpGet]
         [Route("GetCustomer/{id}")]
         public IActionResult GetCustomerById(string id)

@@ -8,6 +8,7 @@ using System.ComponentModel;
 
 namespace LoanManagementSystem.UI.Models
 {
+    // Customer Model and Validation
     public class Customer
     {
         [Required(ErrorMessage = "CustomerId is required")]
@@ -15,24 +16,30 @@ namespace LoanManagementSystem.UI.Models
         public string CustomerId { get; set; }
         [Required(ErrorMessage = "FirstName is required")]
         [RegularExpression(@"^[a-zA-Z].{3,20}$", ErrorMessage = "Give Name in Alphabets Only")]
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
         [Required(ErrorMessage = "LastName is required")]
         [RegularExpression(@"^[a-zA-Z].{3,20}$", ErrorMessage = "Give Name in Alphabets Only")]
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
         [Required(ErrorMessage = "Please enter the Password")]
         [DataType(DataType.Password)]
+        [DisplayName("Password")]
         /*[RegularExpression(@"^([a-zA-Z][0-9][~!@#$%^&*]).{8,20}$", ErrorMessage = "Please enter a valid password")]*/
         public string CustomerPassword { get; set; }
         [Required(ErrorMessage = "Please enter your Address")]
         public string Address { get; set; }
         [Required(ErrorMessage = "Please provide the PanNumber")]
         [RegularExpression(@"^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}$", ErrorMessage = "Please enter the correct PanNumber Ex: XXXXX0000X")]
+        [DisplayName("PAN Number")]
         public string PanNumber { get; set; }
         [Required(ErrorMessage = "Please provide the AadharNumber")]
         [RegularExpression(@"^[0-9]{12}$", ErrorMessage = "Please enter the correct AadharNumber")]
+        [DisplayName("Aadhar Number")]
         public string AadharNumber { get; set; }
         [Required(ErrorMessage = "Please enter the PhoneNumber")]
         [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Please enter the correct PhoneNumber")]
+        [DisplayName("Contact Number")]
         public string ContactNumber { get; set; }
         [Required(ErrorMessage = "Please enter the Email Address")]
         [DataType(DataType.EmailAddress)]
