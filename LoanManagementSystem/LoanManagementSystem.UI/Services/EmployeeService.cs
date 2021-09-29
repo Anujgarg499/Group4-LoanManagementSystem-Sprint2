@@ -120,7 +120,7 @@ namespace LoanManagementSystem.UI.Services
                 client.BaseAddress = new Uri("http://localhost:25813/"); //set API address
                 MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json"); //set the media type format as json
                 client.DefaultRequestHeaders.Accept.Add(contentType); //set the media type as json
-                HttpResponseMessage response = client.GetAsync("api/Employee/GetCheckApproval/" + CustomerId + "?" + LoanAccNumber).Result;
+                HttpResponseMessage response = client.GetAsync("api/Employee/GetCheckApproval/" + CustomerId + "/" + LoanAccNumber).Result;
                 string status = JsonConvert.DeserializeObject<string>(response.Content.ReadAsStringAsync().Result);
                 return status;
             }

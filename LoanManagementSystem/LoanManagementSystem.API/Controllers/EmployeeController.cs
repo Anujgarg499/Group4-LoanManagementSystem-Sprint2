@@ -69,7 +69,7 @@ namespace LoanManagementSystem.API.Controllers
         }
 
         // For Deleting Rejected Loans of Customer
-        [HttpDelete]
+        /*[HttpDelete]
         [Route("DeleteCustomer/{loanAccountNumber}")]
         public IActionResult DeleteCustomerById(string loanAccountNumber)
         {
@@ -82,7 +82,7 @@ namespace LoanManagementSystem.API.Controllers
             {
                 return Content(ex.Message);
             }
-        }
+        }*/
 
         // For Viewing all the Customer where Loan Status is Pending
         [HttpGet]
