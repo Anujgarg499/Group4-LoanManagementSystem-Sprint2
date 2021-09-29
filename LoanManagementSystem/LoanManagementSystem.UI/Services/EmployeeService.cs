@@ -31,7 +31,7 @@ namespace LoanManagementSystem.UI.Services
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:25813/");
-                HttpResponseMessage response = client.DeleteAsync("api/Employee/DeleteCustomer/"+LoanAccNumber).Result;
+                HttpResponseMessage response = client.DeleteAsync("api/Employee/DeleteCustomer/" + LoanAccNumber).Result;
 
             }
         }

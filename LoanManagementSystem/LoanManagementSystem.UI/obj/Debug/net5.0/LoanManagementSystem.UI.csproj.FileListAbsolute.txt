@@ -126,3 +126,4 @@ E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManageme
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\GetCustomerEligibility.cshtml.g.cs
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\Edit.cshtml.g.cs
 E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\GetCheckApproval.cshtml.g.cs
+E:\CG\.net\Group4-LoanManagementSystem-Sprint2\LoanManagementSystem\LoanManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Employee\DeleteCustomerLoan.cshtml.g.cs

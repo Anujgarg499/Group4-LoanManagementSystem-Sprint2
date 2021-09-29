@@ -58,7 +58,7 @@ namespace LoanManagementSystem.UI.Controllers
             try
             {
                 employeeService.DeleteCustomerById(LoanAccNumber);
-                return RedirectToAction("DeleteRejectedLoan");
+                return View();
             }
             catch (Exception)
             {

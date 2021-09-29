@@ -47,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.LoanStatus)
             </td>
             <td>                
-                @Html.ActionLink("Delete", "DeleteCustomerById", new { loanAccountNumber=item.LoanAccNumber })                
+                @Html.ActionLink("Delete", "DeleteCustomerLoan", new { loanAccountNumber=item.LoanAccNumber })                
             </td>
         </tr>
 }
