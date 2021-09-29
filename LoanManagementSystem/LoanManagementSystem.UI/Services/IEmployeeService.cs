@@ -13,7 +13,7 @@ namespace LoanManagementSystem.UI.Services
         List<Customer> ViewCustomers();
         Customer SearchCustomerById(string CustomerId);
         LoanDetails SearchCustomerByLoanAccNumber(string LoanAccNumber);
-        void DeleteCustomerById(string CustomerId, string LoanAccNumber);        
+        void DeleteCustomerById(string LoanAccNumber);        
        /* void LoanApprovalorRejection(LoanDetails loanDetails);*/
         List<PendingCustomers> ViewPendingCustomers();
         List<PendingCustomers> ViewRejectedCustomers();

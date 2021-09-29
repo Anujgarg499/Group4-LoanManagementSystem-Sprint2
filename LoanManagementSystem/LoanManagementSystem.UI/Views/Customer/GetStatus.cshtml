@@ -5,11 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>GetStatus</h1>
+<h1>Loan Status</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -22,28 +19,28 @@
             <th>
                 @Html.DisplayNameFor(model => model.CustomerId)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.EmpId)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.LoanType)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.LoanApprovedDate)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.LoanStatus)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.DispersalDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.InterestRate)
-            </th>
-            <th>
+            </th>*@
+            @*<th>
                 @Html.DisplayNameFor(model => model.Tenure)
-            </th>
-            <th>
+            </th>*@
+            @*<th>
                 @Html.DisplayNameFor(model => model.EmiStartDate)
             </th>
             <th>
@@ -60,7 +57,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CustomerAssetId)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -76,28 +73,28 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerId)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.EmpId)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.LoanType)
             </td>
-            <td>
+           @* <td>
                 @Html.DisplayFor(modelItem => item.LoanApprovedDate)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.LoanStatus)
             </td>
-            <td>
+           @* <td>
                 @Html.DisplayFor(modelItem => item.DispersalDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.InterestRate)
-            </td>
-            <td>
+            </td>*@
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Tenure)
-            </td>
-            <td>
+            </td>*@
+            @*<td>
                 @Html.DisplayFor(modelItem => item.EmiStartDate)
             </td>
             <td>
@@ -114,7 +111,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerAssetId)
-            </td>
+            </td>*@
             <td>
                @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

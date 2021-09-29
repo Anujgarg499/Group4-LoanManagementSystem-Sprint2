@@ -33,12 +33,12 @@ namespace LoanManagementSystem.API.Repositories
         }*/
 
         // for Deleting Customer By Id those loans are Rejected
-        public void DeleteCustomerById(string CustomerId, string LoanAccNumber)
+        public void DeleteCustomerById(string LoanAccNumber)
         {
             try
             {
                 //Customer customer = db.Customers.Find(CustomerId,LoanAccNumber);
-                LoanDetails loanDetails = db.LoanDetails.Find(CustomerId, LoanAccNumber);                
+                LoanDetails loanDetails = db.LoanDetails.Find(LoanAccNumber);                
                     db.LoanDetails.Remove(loanDetails);
                     //db.Customers.Remove(customer);
                     db.SaveChanges();                
@@ -206,7 +206,7 @@ namespace LoanManagementSystem.API.Repositories
                 {
                     var customers = (from customer in loanDetails
                                      where customer.CustomerId == CustomerId
-                                     & customer.LoanStatus == "Approved"
+                                     & customer.LoanAccNumber == LoanAccNumber
                                      select customer);
                     foreach (var item in customers)
                     {
@@ -230,7 +230,6 @@ namespace LoanManagementSystem.API.Repositories
                 }
                 return status;
             }
-
             catch (Exception)
             {
                 throw;

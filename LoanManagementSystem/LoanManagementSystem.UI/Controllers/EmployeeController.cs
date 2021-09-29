@@ -53,11 +53,11 @@ namespace LoanManagementSystem.UI.Controllers
         }
 
         // For Delete Customer Loan
-        public IActionResult DeleteCustomerLoan(string CustomerId, string LoanAccNumber)
+        public IActionResult DeleteCustomerLoan(string LoanAccNumber)
         {
             try
             {
-                employeeService.DeleteCustomerById(CustomerId,LoanAccNumber);
+                employeeService.DeleteCustomerById(LoanAccNumber);
                 return RedirectToAction("DeleteRejectedLoan");
             }
             catch (Exception)
@@ -65,22 +65,7 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
-
-        // For Viewing all the Customer where Loan Status is Pending and processing the Loan
-        public IActionResult LoanProcessing()
-        {
-            try
-            {
-                List<PendingCustomers> pendingcustomers = employeeService.ViewPendingCustomers();
-                return View(pendingcustomers);
-            }
-            catch (Exception)
-            {
-                return View("Error");
-            }
-        }
-
-        // For Deleting Rejected Loans of Customer
+        // For Viewing Rejected Loans of Customer
         public IActionResult DeleteRejectedLoan()
         {
             try
@@ -93,6 +78,19 @@ namespace LoanManagementSystem.UI.Controllers
                 return View("Error");
             }
         }
+        // For Viewing all the Customer where Loan Status is Pending and processing the Loan
+        public IActionResult LoanProcessing()
+        {
+            try
+            {
+                List<PendingCustomers> pendingcustomers = employeeService.ViewPendingCustomers();
+                return View(pendingcustomers);
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+        }               
         /*public IActionResult GetCustomerEligibility(string customerid)
         {
             try

@@ -58,11 +58,11 @@ namespace LoanManagementSystem.API.Repositories
                 {
                     var loanDetails = new LoanDetails()
                     {
-                        CustomerId=status.CustomerId,
-                        LoanAccNumber=status.LoanAccNumber,
-                        LoanAmount=status.LoanAmount,
-                        LoanStatus=status.LoanStatus,
-                        LoanType=status.LoanType
+                        CustomerId = status.CustomerId,
+                        LoanAccNumber = status.LoanAccNumber,
+                        LoanAmount = status.LoanAmount,
+                        LoanStatus = status.LoanStatus,
+                        LoanType = status.LoanType                        
                     };
                     details.Add(loanDetails);
                 }

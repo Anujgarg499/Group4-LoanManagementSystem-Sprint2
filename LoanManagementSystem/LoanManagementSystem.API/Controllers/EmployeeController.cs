@@ -70,12 +70,12 @@ namespace LoanManagementSystem.API.Controllers
 
         // For Deleting Rejected Loans of Customer
         [HttpDelete]
-        [Route("DeleteCustomer/{id}/{loanAccountNumber}")]
-        public IActionResult DeleteCustomerById(string id, string loanAccountNumber)
+        [Route("DeleteCustomer/{loanAccountNumber}")]
+        public IActionResult DeleteCustomerById(string loanAccountNumber)
         {
             try
             {
-                employeeRepository.DeleteCustomerById(id, loanAccountNumber);
+                employeeRepository.DeleteCustomerById(loanAccountNumber);
                 return Ok();
             }
             catch (Exception ex)
@@ -148,11 +148,11 @@ namespace LoanManagementSystem.API.Controllers
         // For Loan Approval or Rejection
         [HttpGet]
         [Route("GetCheckApproval/{id}/{loanAccountNumber}")]
-        public IActionResult GetCheckApproval(string customerid, string loanAccountNumber)
+        public IActionResult GetCheckApproval(string id, string loanAccountNumber)
         {
             try
             {
-                string status = employeeRepository.CheckApproval(customerid, loanAccountNumber);
+                string status = employeeRepository.CheckApproval(id, loanAccountNumber);
                 return Ok(status);
             }
             catch (Exception ex)

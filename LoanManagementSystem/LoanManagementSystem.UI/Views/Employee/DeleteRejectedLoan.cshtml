@@ -5,11 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>DeleteRejectedLoan</h1>
+<h1>View Rejected Loans</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -50,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.LoanStatus)
             </td>
             <td>                
-                @Html.ActionLink("Delete", "DeleteCustomerById", new { id=item.CustomerId, loanAccountNumber=item.LoanAccNumber })                
+                @Html.ActionLink("Delete", "DeleteCustomerById", new { loanAccountNumber=item.LoanAccNumber })                
             </td>
         </tr>
 }

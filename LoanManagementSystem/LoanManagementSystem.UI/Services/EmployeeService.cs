@@ -26,12 +26,12 @@ namespace LoanManagementSystem.UI.Services
         }*/
 
 
-        public void DeleteCustomerById(string CustomerId, string LoanAccNumber)
+        public void DeleteCustomerById(string LoanAccNumber)
         {
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:25813/");
-                HttpResponseMessage response = client.DeleteAsync("api/Employee/DeleteCustomer/" + CustomerId+"?"+LoanAccNumber).Result;
+                HttpResponseMessage response = client.DeleteAsync("api/Employee/DeleteCustomer/"+LoanAccNumber).Result;
 
             }
         }
